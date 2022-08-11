@@ -1,16 +1,16 @@
-# pomodoro
+# Pomodoro
 
-A new Flutter project.
+The pomodoro technique is a time management framework that will improve your focus and productivity. It encourages you to work within the time you have, rather than struggle against it.
 
-## Getting Started
+You will finish each day with a sense of accomplishment by doing nothing more than working in 25-minute blocks (called pomodoro sessions), followed by 5-minute breaks.
 
-This project is a starting point for a Flutter application.
+The pomodoro technique is popular with freelancers wanting to track time, students wishing to study more effectively and anyone looking to improve themselves at work or in their personal projects.
 
-A few resources to get you started if this is your first Flutter project:
+The pomodoro technique is simple, yet very effective.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Screenshots
+Idle State            |  Timer Running State
+:-------------------------:|:-------------------------:
+![](./screenshots/1.png)  |  ![](./screenshots/2.png)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
