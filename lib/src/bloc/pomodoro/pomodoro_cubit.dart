@@ -69,7 +69,7 @@ class PomodoroCubit extends Cubit<PomodoroState> {
 
   void onTimerComplete() {
     /// play the notification sound
-    audioPlayerService.play();
+    audioPlayerService.play(settingsBloc.state.settings.alarmSound);
 
     final PomodoroEnum _nextState = getNextState();
     final int _nextStateTime = getTimeFromState(_nextState);

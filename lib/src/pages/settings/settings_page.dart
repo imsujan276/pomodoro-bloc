@@ -26,6 +26,7 @@ class _SettingsPageState extends State<SettingsPage> {
   late TextEditingController longBreakIntervalCtrl;
   bool autoShortBreak = false;
   bool autoLongBreak = false;
+  late String alarmSound;
 
   late SettingsBloc settingBloc;
 
@@ -51,6 +52,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
     autoLongBreak = setting.autoLongBreak;
     autoShortBreak = setting.autoShortBreaks;
+    alarmSound = setting.alarmSound;
   }
 
   @override
@@ -133,6 +135,8 @@ class _SettingsPageState extends State<SettingsPage> {
                         });
                       },
                     ),
+                    Gap(height(10)),
+                    _alarmSoundWidget(),
                     const Divider(),
                     Gap(height(10)),
                     CustomButton(
@@ -157,6 +161,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                       1,
                                   autoLongBreak: autoLongBreak,
                                   autoShortBreaks: autoShortBreak,
+                                  alarmSound: alarmSound,
                                 );
                                 settingBloc.add(
                                     SettingsUpdateEvent(settingModel: setting));
@@ -170,6 +175,46 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _alarmSoundWidget() {
+    return Row(
+      children: [
+        Expanded(
+          child: CustomText(
+            text: "Alarm Sound",
+            color: kBlackColor,
+            fontWeight: FontWeight.bold,
+            fontSize: kDefaultFontSize,
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          decoration: BoxDecoration(
+            color: kLightGrey.withOpacity(0.75),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+          ),
+          width: width(100),
+          child: DropdownButton<String>(
+            value: alarmSound,
+            items: ['1', '2', '3', '4', '5']
+                .map((e) => DropdownMenuItem(
+                      value: e,
+                      child: Text(e),
+                    ))
+                .toList(),
+            onChanged: (String? value) {
+              if (value != null) {
+                setState(() {
+                  alarmSound = value;
+                });
+              }
+            },
+            isExpanded: true,
+          ),
+        ),
+      ],
     );
   }
 

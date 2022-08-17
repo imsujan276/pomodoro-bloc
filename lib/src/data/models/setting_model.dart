@@ -8,6 +8,7 @@ const SettingModel settingModelInitial = SettingModel(
   longBreakInterval: 4,
   autoShortBreaks: false,
   autoLongBreak: false,
+  alarmSound: "1",
 );
 
 class SettingModel {
@@ -17,6 +18,7 @@ class SettingModel {
   final int longBreakInterval;
   final bool autoShortBreaks;
   final bool autoLongBreak;
+  final String alarmSound;
 
   const SettingModel({
     required this.timerPomodoro,
@@ -25,6 +27,7 @@ class SettingModel {
     required this.longBreakInterval,
     required this.autoShortBreaks,
     required this.autoLongBreak,
+    required this.alarmSound,
   });
 
   SettingModel copyWith({
@@ -34,6 +37,7 @@ class SettingModel {
     int? longBreakInterval,
     bool? autoShortBreaks,
     bool? autoLongBreak,
+    String? alarmSound,
   }) {
     return SettingModel(
       timerPomodoro: timerPomodoro ?? this.timerPomodoro,
@@ -42,6 +46,7 @@ class SettingModel {
       longBreakInterval: longBreakInterval ?? this.longBreakInterval,
       autoShortBreaks: autoShortBreaks ?? this.autoShortBreaks,
       autoLongBreak: autoLongBreak ?? this.autoLongBreak,
+      alarmSound: alarmSound ?? this.alarmSound,
     );
   }
 
@@ -53,6 +58,7 @@ class SettingModel {
       'longBreakInterval': longBreakInterval,
       'autoShortBreaks': autoShortBreaks,
       'autoLongBreak': autoLongBreak,
+      'alarmSound': alarmSound,
     };
   }
 
@@ -64,38 +70,41 @@ class SettingModel {
       longBreakInterval: map['longBreakInterval'] as int,
       autoShortBreaks: map['autoShortBreaks'] as bool,
       autoLongBreak: map['autoLongBreak'] as bool,
+      alarmSound: map['alarmSound'] as String,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory SettingModel.fromJson(String source) =>
-      SettingModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory SettingModel.fromJson(String source) => SettingModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
-    return 'SettingModel(timerPomodoro: $timerPomodoro, timerShortBreak: $timerShortBreak, timerLongBreak: $timerLongBreak, longBreakInterval: $longBreakInterval, autoShortBreaks: $autoShortBreaks, autoLongBreak: $autoLongBreak)';
+    return 'SettingModel(timerPomodoro: $timerPomodoro, timerShortBreak: $timerShortBreak, timerLongBreak: $timerLongBreak, longBreakInterval: $longBreakInterval, autoShortBreaks: $autoShortBreaks, autoLongBreak: $autoLongBreak, alarmSound: $alarmSound)';
   }
 
   @override
   bool operator ==(covariant SettingModel other) {
     if (identical(this, other)) return true;
-
-    return other.timerPomodoro == timerPomodoro &&
-        other.timerShortBreak == timerShortBreak &&
-        other.timerLongBreak == timerLongBreak &&
-        other.longBreakInterval == longBreakInterval &&
-        other.autoShortBreaks == autoShortBreaks &&
-        other.autoLongBreak == autoLongBreak;
+  
+    return 
+      other.timerPomodoro == timerPomodoro &&
+      other.timerShortBreak == timerShortBreak &&
+      other.timerLongBreak == timerLongBreak &&
+      other.longBreakInterval == longBreakInterval &&
+      other.autoShortBreaks == autoShortBreaks &&
+      other.autoLongBreak == autoLongBreak &&
+      other.alarmSound == alarmSound;
   }
 
   @override
   int get hashCode {
     return timerPomodoro.hashCode ^
-        timerShortBreak.hashCode ^
-        timerLongBreak.hashCode ^
-        longBreakInterval.hashCode ^
-        autoShortBreaks.hashCode ^
-        autoLongBreak.hashCode;
+      timerShortBreak.hashCode ^
+      timerLongBreak.hashCode ^
+      longBreakInterval.hashCode ^
+      autoShortBreaks.hashCode ^
+      autoLongBreak.hashCode ^
+      alarmSound.hashCode;
   }
 }
