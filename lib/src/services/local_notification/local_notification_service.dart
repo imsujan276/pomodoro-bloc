@@ -1,6 +1,7 @@
+import 'dart:io';
 import 'dart:math';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:pomodoro/src/constants/app_colors.dart';
@@ -13,14 +14,61 @@ class LocalNotificationService {
       FlutterLocalNotificationsPlugin();
 
   initNotification() async {
+    if (kIsWeb) {
+      return;
+    }
     _configureLocalTimeZone();
+    _requestIosPermissions();
     const AndroidInitializationSettings initAndroidSettings =
         AndroidInitializationSettings('@mipmap/ic_launcher');
 
+    const IOSInitializationSettings initializationSettingsIOS =
+        IOSInitializationSettings(
+      requestAlertPermission: false,
+      requestBadgePermission: false,
+      requestSoundPermission: false,
+    );
+    const MacOSInitializationSettings initializationSettingsMacOS =
+        MacOSInitializationSettings(
+      requestAlertPermission: false,
+      requestBadgePermission: false,
+      requestSoundPermission: false,
+    );
+    const LinuxInitializationSettings initializationSettingsLinux =
+        LinuxInitializationSettings(defaultActionName: 'Open notification');
+
     const InitializationSettings initializationSettings =
-        InitializationSettings(android: initAndroidSettings);
+        InitializationSettings(
+      android: initAndroidSettings,
+      iOS: initializationSettingsIOS,
+      macOS: initializationSettingsMacOS,
+      linux: initializationSettingsLinux,
+    );
 
     await _flutterLocalNotificationsPlugin.initialize(initializationSettings);
+  }
+
+  Future<void> _requestIosPermissions() async {
+    if (Platform.isIOS) {
+      await _flutterLocalNotificationsPlugin
+          .resolvePlatformSpecificImplementation<
+              IOSFlutterLocalNotificationsPlugin>()
+          ?.requestPermissions(
+            alert: true,
+            badge: true,
+            sound: true,
+          );
+    }
+    if (Platform.isMacOS) {
+      await _flutterLocalNotificationsPlugin
+          .resolvePlatformSpecificImplementation<
+              MacOSFlutterLocalNotificationsPlugin>()
+          ?.requestPermissions(
+            alert: true,
+            badge: true,
+            sound: true,
+          );
+    }
   }
 
   Future<NotificationDetails> _notificationDetails() async {
@@ -35,7 +83,6 @@ class LocalNotificationService {
       color: kPrimary,
       setAsGroupSummary: true,
       enableLights: true,
-      // fullScreenIntent: true,
     );
 
     NotificationDetails platformChannelSpecifics =

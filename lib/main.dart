@@ -38,6 +38,9 @@ class MyApp extends StatelessWidget {
             localNotificationService: LocalNotificationService(),
           )..init(),
         ),
+        BlocProvider(
+          create: (context) => TaskCubit()..init(),
+        )
       ],
       child: MaterialApp(
         title: kAppName,

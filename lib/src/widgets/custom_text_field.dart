@@ -12,7 +12,6 @@ class CustomTextField extends StatelessWidget {
   final VoidCallback? onTap;
   final bool readOnly;
   final IconData? suffixIcon;
-  final bool isDescription;
   final int? maxLines;
   final int? maxLength;
   final bool autoFocus;
@@ -32,8 +31,7 @@ class CustomTextField extends StatelessWidget {
     this.onTap,
     this.readOnly = false,
     this.suffixIcon,
-    this.isDescription = false,
-    this.maxLines,
+    this.maxLines = 1,
     this.maxLength,
     this.autoFocus = false,
     this.fixedLabel,
@@ -63,14 +61,13 @@ class CustomTextField extends StatelessWidget {
           ],
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(size.radius(10)),
-            ),
+                borderRadius: BorderRadius.circular(size.radius(10))),
             child: TextFormField(
               initialValue: initialValue,
               validator: validator,
               autofocus: autoFocus,
               autovalidateMode: autovalidateMode,
-              maxLines: isDescription ? maxLines ?? 10 : maxLines ?? 1,
+              maxLines: maxLines,
               maxLength: maxLength,
               keyboardType: textInputType,
               readOnly: readOnly,

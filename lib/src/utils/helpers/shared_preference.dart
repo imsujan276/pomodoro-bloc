@@ -18,4 +18,21 @@ class SpHelper {
         ? null
         : SettingModel.fromJson(_settingString);
   }
+
+  Future<void> saveTasks(List<Task> tasks) async {
+    List<String> _taskStrings = [];
+    for (var task in tasks) {
+      _taskStrings.add(task.toJson());
+    }
+    sp.setStringList("tasks", _taskStrings);
+  }
+
+  Future<List<Task>> getTasks() async {
+    List<Task> tasks = [];
+    List<String> _taskStrings = sp.getStringList("tasks") ?? [];
+    for (var taskString in _taskStrings) {
+      tasks.add(Task.fromJson(taskString));
+    }
+    return tasks;
+  }
 }
