@@ -1,4 +1,4 @@
-package com.nerdplatoon.pomodoro
+package com.app.pomodoro
 
 import io.flutter.embedding.android.FlutterActivity
 

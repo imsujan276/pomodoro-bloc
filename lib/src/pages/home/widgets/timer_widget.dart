@@ -58,26 +58,26 @@ class _MainButtons extends StatelessWidget {
                   : kTransparentColor,
               borderRadius: 50,
               onPressed: () async {
-                //   if (context.read<TimerBloc>().state is TimerRunInProgress) {
-                //     final bool result = await customAlert(
-                //       context: context,
-                //       msg: "Timer is still running",
-                //       btnColor: getColorForState(pomodoroCubit.state.state),
-                //     );
-                //     if (result) {
-                //       if (pomodoroCubit.state.state != PomodoroEnum.pomodoro) {
-                //         pomodoroCubit
-                //           ..selectState(PomodoroEnum.pomodoro)
-                //           ..shortBreakCount = 0;
-                //       }
-                //     }
-                //   } else {
-                //     if (pomodoroCubit.state.state != PomodoroEnum.pomodoro) {
-                //       pomodoroCubit
-                //         ..selectState(PomodoroEnum.pomodoro)
-                //         ..shortBreakCount = 0;
-                //     }
-                //   }
+                if (context.read<TimerBloc>().state is TimerRunInProgress) {
+                  final bool result = await customAlert(
+                    context: context,
+                    msg: "Timer is still running",
+                    btnColor: getColorForState(pomodoroCubit.state.state),
+                  );
+                  if (result) {
+                    if (pomodoroCubit.state.state != PomodoroEnum.pomodoro) {
+                      pomodoroCubit
+                        ..selectState(PomodoroEnum.pomodoro)
+                        ..shortBreakCount = 0;
+                    }
+                  }
+                } else {
+                  if (pomodoroCubit.state.state != PomodoroEnum.pomodoro) {
+                    pomodoroCubit
+                      ..selectState(PomodoroEnum.pomodoro)
+                      ..shortBreakCount = 0;
+                  }
+                }
               },
             ),
             const Gap(5),
@@ -88,22 +88,22 @@ class _MainButtons extends StatelessWidget {
                   : kTransparentColor,
               borderRadius: 50,
               onPressed: () async {
-                // if (context.read<TimerBloc>().state is TimerRunInProgress) {
-                //   final bool result = await customAlert(
-                //     context: context,
-                //     msg: "Timer is still running",
-                //     btnColor: getColorForState(pomodoroCubit.state.state),
-                //   );
-                //   if (result) {
-                //     if (pomodoroCubit.state.state != PomodoroEnum.shortBreak) {
-                //       pomodoroCubit.selectState(PomodoroEnum.shortBreak);
-                //     }
-                //   }
-                // } else {
-                //   if (pomodoroCubit.state.state != PomodoroEnum.shortBreak) {
-                //     pomodoroCubit.selectState(PomodoroEnum.shortBreak);
-                //   }
-                // }
+                if (context.read<TimerBloc>().state is TimerRunInProgress) {
+                  final bool result = await customAlert(
+                    context: context,
+                    msg: "Timer is still running",
+                    btnColor: getColorForState(pomodoroCubit.state.state),
+                  );
+                  if (result) {
+                    if (pomodoroCubit.state.state != PomodoroEnum.shortBreak) {
+                      pomodoroCubit.selectState(PomodoroEnum.shortBreak);
+                    }
+                  }
+                } else {
+                  if (pomodoroCubit.state.state != PomodoroEnum.shortBreak) {
+                    pomodoroCubit.selectState(PomodoroEnum.shortBreak);
+                  }
+                }
               },
             ),
             const Gap(5),
@@ -114,22 +114,22 @@ class _MainButtons extends StatelessWidget {
                   : kTransparentColor,
               borderRadius: 50,
               onPressed: () async {
-                // if (context.read<TimerBloc>().state is TimerRunInProgress) {
-                //   final bool result = await customAlert(
-                //     context: context,
-                //     msg: "Timer is still running",
-                //     btnColor: getColorForState(pomodoroCubit.state.state),
-                //   );
-                //   if (result) {
-                //     if (pomodoroCubit.state.state != PomodoroEnum.longBreak) {
-                //       pomodoroCubit.selectState(PomodoroEnum.longBreak);
-                //     }
-                //   }
-                // } else {
-                //   if (pomodoroCubit.state.state != PomodoroEnum.longBreak) {
-                //     pomodoroCubit.selectState(PomodoroEnum.longBreak);
-                //   }
-                // }
+                if (context.read<TimerBloc>().state is TimerRunInProgress) {
+                  final bool result = await customAlert(
+                    context: context,
+                    msg: "Timer is still running",
+                    btnColor: getColorForState(pomodoroCubit.state.state),
+                  );
+                  if (result) {
+                    if (pomodoroCubit.state.state != PomodoroEnum.longBreak) {
+                      pomodoroCubit.selectState(PomodoroEnum.longBreak);
+                    }
+                  }
+                } else {
+                  if (pomodoroCubit.state.state != PomodoroEnum.longBreak) {
+                    pomodoroCubit.selectState(PomodoroEnum.longBreak);
+                  }
+                }
               },
             ),
           ],

@@ -20,7 +20,7 @@ class LocalNotificationService {
     _configureLocalTimeZone();
     _requestIosPermissions();
     const AndroidInitializationSettings initAndroidSettings =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
+        AndroidInitializationSettings('@mipmap/launcher_icon');
 
     const IOSInitializationSettings initializationSettingsIOS =
         IOSInitializationSettings(
@@ -76,7 +76,7 @@ class LocalNotificationService {
         const AndroidNotificationDetails(
       'pomoChan',
       kAppName,
-      groupKey: 'com.nerdplatoon.pomodoro',
+      groupKey: 'com.app.pomodoro',
       importance: Importance.max,
       priority: Priority.max,
       playSound: true,

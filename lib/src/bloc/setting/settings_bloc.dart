@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import 'package:pomodoro/src/constants/constants.dart';
 import 'package:pomodoro/src/data/enum/enum.dart';
 import 'package:pomodoro/src/data/models/models.dart';
 import 'package:pomodoro/src/utils/utils.dart';

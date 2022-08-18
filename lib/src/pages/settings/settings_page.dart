@@ -198,7 +198,7 @@ class _SettingsPageState extends State<SettingsPage> {
           width: width(100),
           child: DropdownButton<String>(
             value: alarmSound,
-            items: ['1', '2', '3', '4', '5']
+            items: alarmSoundNames
                 .map((e) => DropdownMenuItem(
                       value: e,
                       child: Text(e),

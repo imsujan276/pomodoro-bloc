@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:pomodoro/src/constants/constants.dart';
 
 class AudioPlayerService {
   late AudioPlayer player;
@@ -12,7 +13,7 @@ class AudioPlayerService {
     try {
       player.play(AssetSource('sounds/$soundName.wav'));
     } catch (_) {
-      player.play(AssetSource('sounds/1.wav'));
+      player.play(AssetSource('sounds/${alarmSoundNames[0]}.wav'));
     }
   }
 }

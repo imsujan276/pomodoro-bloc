@@ -1,16 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-const SettingModel settingModelInitial = SettingModel(
-  timerPomodoro: 25 * 60,
-  timerShortBreak: 5 * 60,
-  timerLongBreak: 15 * 60,
-  longBreakInterval: 4,
-  autoShortBreaks: false,
-  autoLongBreak: false,
-  alarmSound: "1",
-);
-
 class SettingModel {
   final int timerPomodoro;
   final int timerShortBreak;
@@ -76,7 +66,8 @@ class SettingModel {
 
   String toJson() => json.encode(toMap());
 
-  factory SettingModel.fromJson(String source) => SettingModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory SettingModel.fromJson(String source) =>
+      SettingModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -86,25 +77,24 @@ class SettingModel {
   @override
   bool operator ==(covariant SettingModel other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.timerPomodoro == timerPomodoro &&
-      other.timerShortBreak == timerShortBreak &&
-      other.timerLongBreak == timerLongBreak &&
-      other.longBreakInterval == longBreakInterval &&
-      other.autoShortBreaks == autoShortBreaks &&
-      other.autoLongBreak == autoLongBreak &&
-      other.alarmSound == alarmSound;
+
+    return other.timerPomodoro == timerPomodoro &&
+        other.timerShortBreak == timerShortBreak &&
+        other.timerLongBreak == timerLongBreak &&
+        other.longBreakInterval == longBreakInterval &&
+        other.autoShortBreaks == autoShortBreaks &&
+        other.autoLongBreak == autoLongBreak &&
+        other.alarmSound == alarmSound;
   }
 
   @override
   int get hashCode {
     return timerPomodoro.hashCode ^
-      timerShortBreak.hashCode ^
-      timerLongBreak.hashCode ^
-      longBreakInterval.hashCode ^
-      autoShortBreaks.hashCode ^
-      autoLongBreak.hashCode ^
-      alarmSound.hashCode;
+        timerShortBreak.hashCode ^
+        timerLongBreak.hashCode ^
+        longBreakInterval.hashCode ^
+        autoShortBreaks.hashCode ^
+        autoLongBreak.hashCode ^
+        alarmSound.hashCode;
   }
 }

@@ -8,7 +8,7 @@ import 'package:pomodoro/src/data/enum/enum.dart';
 import 'package:pomodoro/src/pages/home/widgets/task_widget.dart';
 import 'package:pomodoro/src/pages/settings/settings_page.dart';
 import 'package:pomodoro/src/utils/utils.dart';
-import 'package:pomodoro/src/widgets/task_form.dart';
+import 'package:pomodoro/src/widgets/widgets.dart';
 
 import 'widgets/status_text_widget.dart';
 import 'widgets/timer_widget.dart';
@@ -31,9 +31,7 @@ class HomePage extends StatelessWidget {
             IconButton(
               onPressed: () async {
                 final result = await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SettingsPage()));
+                    context, kRouteSlide(page: const SettingsPage()));
                 if (result != null) {
                   // on settings update, restart the state
                   context.read<PomodoroCubit>()
