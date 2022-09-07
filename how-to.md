@@ -4,7 +4,7 @@
     - find `alarmSoundNames` in `lib/src/constants/app_constants.dart` and, add/update the list
 
 2. To update the app app identifier
-    - find and replace the `com.app.pomodoro` with your desired identifier
+    - find and replace the `np.com.sujangainju.pomotimer` with your desired identifier
 
 3. To change the app icon,
     - replace the image `logo.png` in `assets/images/` 

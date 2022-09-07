@@ -5,7 +5,7 @@ import 'package:pomodoro/src/utils/helpers/helpers.dart';
 /// Global context
 GlobalKey<NavigatorState> kNavigatorKey = GlobalKey<NavigatorState>();
 
-const String kAppName = "Pomodoro";
+const String kAppName = "Pomo Timer";
 
 double kDefaultPadding = height(16);
 double kDefaultMargin = height(16);

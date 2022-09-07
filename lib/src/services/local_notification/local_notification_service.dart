@@ -76,7 +76,7 @@ class LocalNotificationService {
         const AndroidNotificationDetails(
       'pomoChan',
       kAppName,
-      groupKey: 'com.app.pomodoro',
+      groupKey: 'np.com.sujangainju.pomotimer',
       importance: Importance.max,
       priority: Priority.max,
       playSound: true,
